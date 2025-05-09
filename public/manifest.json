@@ -1,0 +1,7 @@
+{
+  "manifest_version": 3,
+  "name": "Sales Assistant",  
+  "version": "1.0.0",
+  "description": "A Chrome extension by Nataliia Hrytsai that highlights sales items using Gemini AI.",
+  "author": "Nataliia Hrytsai"
+}
