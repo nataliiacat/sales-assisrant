@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# Sales Assistant Chrome Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This Chrome extension uses the Gemini API to identify sales pages and highlight items on sale. It injects DOM elements to visually mark sale items and provides additional information in a tooltip when hovering over them.
 
-Currently, two official plugins are available:
+## Features
+- Detects if the current page is a sales page using the Gemini API.
+- Highlights sale items with a light blue border.
+- Displays a tooltip with additional information when hovering over sale items.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+1. Run `npm install` to install dependencies.
+2. Build the project using `npm run build`. This will generate the `dist` folder.
+3. Open Chrome and navigate to `chrome://extensions/`.
+4. Enable "Developer mode" and load the unpacked extension from the `dist` folder.
 
-## Expanding the ESLint configuration
+## Usage
+1. Click the "Scan Page" button in the extension popup to analyze the current page.
+2. Sale items will be highlighted with a light blue border.
+3. Hover over a sale item to see a tooltip with additional information.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development
+This project is built using:
+- **React** for the UI.
+- **TypeScript** for type safety.
+- **Vite** for fast builds and development.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Commands
+- `npm install`: Install dependencies.
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the project for production.
+- `npm run lint`: Run ESLint to check for code issues.
+
+## Folder Structure
+```
+sales-assistant/
+├── public/             # Static assets (e.g., manifest.json, icons)
+├── src/                # Source code
+│   ├── App.tsx         # Main React component
+│   ├── main.tsx        # Entry point for the React app
+│   ├── background.ts   # Background script for the extension
+├── dist/               # Production build output
+├── package.json        # Project configuration and dependencies
+├── tsconfig.json       # TypeScript configuration
+├── vite.config.ts      # Vite configuration
+└── README.md           # Project documentation
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## License
+This project is licensed under the MIT License.
