@@ -29,22 +29,5 @@ This project is built using:
 - `npm install`: Install dependencies.
 - `npm run dev`: Start the development server.
 - `npm run build`: Build the project for production.
-- `npm run lint`: Run ESLint to check for code issues.
 
-## Folder Structure
-```
-sales-assistant/
-├── public/             # Static assets (e.g., manifest.json, icons)
-├── src/                # Source code
-│   ├── App.tsx         # Main React component
-│   ├── main.tsx        # Entry point for the React app
-│   ├── background.ts   # Background script for the extension
-├── dist/               # Production build output
-├── package.json        # Project configuration and dependencies
-├── tsconfig.json       # TypeScript configuration
-├── vite.config.ts      # Vite configuration
-└── README.md           # Project documentation
-```
 
-## License
-This project is licensed under the MIT License.

@@ -32,19 +32,20 @@ document.getElementById('scanButton').addEventListener('click', async () => {
 
 function scanSalesItems() {
   const apiKey = 'AIzaSyCZv5TEocWm3i70GPnPVM_VTEnCcL0ZeM8'; 
-  const dom = document.body.innerText.slice(0, 20000); // Збільшено обсяг тексту для аналізу
+  const dom = document.body.innerText.slice(0, 20000); 
 
   console.log('Sending DOM to Gemini API:', dom);
 
-  return fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`, {
+  return fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       contents: [{ parts: [{ text: `
-        Analyze the following DOM content and answer the following questions:
-        1. Does this page contain keywords like "sale", "discount", "price", "buy", or "cart"?
-        2. Are there elements that look like products (e.g., images with prices)?
-        3. If this is a sales page, return a list of CSS selectors for discounted products.
+       Analyze the following DOM content and answer the following questions:
+        1. Does this page contain keywords related to sales or shopping, such as "sale", "discount", "price", "buy", "cart", "add to cart"?
+        2. Are there any product elements visible on this page, such as images with prices, product names, or descriptions?
+        3. Does the page indicate any special offers, discounts, or promotions for any items?
+        4. If this page is a sales or store page, return a list of CSS selectors for discounted or sale items.
         DOM: \n${dom}
       ` }] }]
     })
